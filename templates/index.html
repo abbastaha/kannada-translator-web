@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kannada-English Translator (Opus)</title>
+    <!-- Optional: Link to a CSS file in static/style.css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   
+</head>
+<body>
+    <h1>Kannada-English Translator (NLLB Models)</h1>
+
+    <form method="POST">
+        <div>
+            <label for="text">Enter Text (Kannada or English):</label><br>
+            <textarea id="text" name="text" rows="6">{{ input_text or '' }}</textarea>
+        </div>
+        <button type="submit">Translate</button>
+    </form>
+
+    {% if detected_language %}
+    <p class="detection-info">{{ detected_language }}</p>
+    {% endif %}
+
+    <div>
+        <h2>Translation:</h2>
+        <div class="output-box">
+            {{ translated_text or '' }}
+        </div>
+    </div>
+
+</body>
+</html>
