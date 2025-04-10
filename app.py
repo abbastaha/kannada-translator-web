@@ -39,7 +39,7 @@ def index():
             try:
                 # 1. Detect Language
                 print("DEBUG: Detecting language...")
-                detected_lang_simple = single_detection(input_text, api_key='ee64e7f8cf3e8e235fcdbef75c18ca87')
+                detected_lang_simple = single_detection(input_text, api_key=os.getenv('API_KEY'))
                 detected_lang_display_code = detected_lang_simple or 'Unknown'
                 detected_language_display = f"Detected: {detected_lang_display_code.upper()}"
                 print(f"DEBUG: Detected language code (simple): {detected_lang_simple}")

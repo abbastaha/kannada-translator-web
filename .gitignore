@@ -4,3 +4,5 @@ __pycache__/
 *.log
 instance/
 *.DS_Store
+config/
+*.json
