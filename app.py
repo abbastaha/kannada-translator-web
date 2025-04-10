@@ -39,7 +39,9 @@ def index():
             try:
                 # 1. Detect Language
                 print("DEBUG: Detecting language...")
-                detected_lang_simple = single_detection(input_text, api_key=os.getenv('API_KEY'))
+                API_KEY = os.getenv('API_KEY')
+                #API KEY is set as environment variable, take API key from hugging face api website
+                detected_lang_simple = single_detection(input_text, api_key=API_KEY)
                 detected_lang_display_code = detected_lang_simple or 'Unknown'
                 detected_language_display = f"Detected: {detected_lang_display_code.upper()}"
                 print(f"DEBUG: Detected language code (simple): {detected_lang_simple}")
@@ -66,6 +68,7 @@ def index():
 
                 # 3. Tokenize
                 print(f"DEBUG: Tokenizing for source: {source_lang_code}...")
+                print('Inoput text is , ', input_text)
                 tokenizer.src_lang = source_lang_code
                 inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True, max_length=512).to(device)
 
